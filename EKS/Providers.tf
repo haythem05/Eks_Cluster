@@ -14,4 +14,14 @@ terraform {
     }
 
   }
+
+
+ backend "s3" {
+    bucket         = "vermeg-eks-terraform-state"
+    key            = "eks/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "vermeg-eks-terraform-locks"
+    encrypt        = true
+  }
+
 }
